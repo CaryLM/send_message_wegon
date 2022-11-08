@@ -55,30 +55,30 @@ def get_week_day():
   return week_day
 
 # 各种正数日
-def get_memorial_days_count(aim_date):
-  if aim_date is None:
-    print('没有设置 开始日')
-    return 0
-  delta = today - datetime.strptime(aim_date, "%Y-%m-%d")
-  return delta.days
+#def get_memorial_days_count(aim_date):
+#  if aim_date is None:
+#    print('没有设置 开始日')
+#    return 0
+#  delta = today - datetime.strptime(aim_date, "%Y-%m-%d")
+#  return delta.days
 
 # 各种倒计时
-def get_counter_left(aim_date):
-  if aim_date is None:
-    return 0
+#def get_counter_left(aim_date):
+#  if aim_date is None:
+#    return 0
 
   # 为了经常填错日期的同学们
-  if re.match(r'^\d{1,2}\-\d{1,2}$', aim_date):
-    next = datetime.strptime(str(date.today().year) + "-" + aim_date, "%Y-%m-%d")
-  elif re.match(r'^\d{2,4}\-\d{1,2}\-\d{1,2}$', aim_date):
-    next = datetime.strptime(aim_date, "%Y-%m-%d")
-    next = next.replace(nowtime.year)
-  else:
-    print('日期格式不符合要求')
+#  if re.match(r'^\d{1,2}\-\d{1,2}$', aim_date):
+#    next = datetime.strptime(str(date.today().year) + "-" + aim_date, "%Y-%m-%d")
+#  elif re.match(r'^\d{2,4}\-\d{1,2}\-\d{1,2}$', aim_date):
+#    next = datetime.strptime(aim_date, "%Y-%m-%d")
+#    next = next.replace(nowtime.year)
+#  else:
+#    print('日期格式不符合要求')
     
-  if next < nowtime:
-    next = next.replace(year=next.year + 1)
-  return (next - today).days
+#  if next < nowtime:
+#    next = next.replace(year=next.year + 1)
+#  return (next - today).days
 
 # 彩虹屁 接口不稳定，所以失败的话会重新调用，直到成功
 def get_words():
@@ -101,10 +101,10 @@ def get_random_color():
 #   return birthday.split('\n')
 
 # 对传入的多个日期进行分割
-def split_dates(aim_dates):
-  if aim_dates is None:
-    return None
-  return aim_dates.split('\n')
+#def split_dates(aim_dates):
+#  if aim_dates is None:
+#   return None
+#  return aim_dates.split('\n')
 
 weather = get_weather()
 if weather is None:

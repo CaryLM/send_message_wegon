@@ -167,10 +167,10 @@ data = {
     "color": get_random_color()
   },
   # 正计时
-   "having_day": {
-     "value": get_memorial_days_count(),
-     "color": get_random_color()
-   },
+  # "having_day": {
+  #   "value": get_memorial_days_count(),
+  #   "color": get_random_color()
+  # },
   # 每日一言
   "words": {
     "value": get_words(),

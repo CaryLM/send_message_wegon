@@ -54,32 +54,6 @@ def get_week_day():
   week_day = week_list[datetime.date(today).weekday()]
   return week_day
 
-# 各种正数日
-#def get_memorial_days_count(aim_date):
-#  if aim_date is None:
-#    print('没有设置 开始日')
-#    return 0
-#  delta = today - datetime.strptime(aim_date, "%Y-%m-%d")
-#  return delta.days
-
-# 各种倒计时
-#def get_counter_left(aim_date):
-#  if aim_date is None:
-#    return 0
-
-  # 为了经常填错日期的同学们
-#  if re.match(r'^\d{1,2}\-\d{1,2}$', aim_date):
-#    next = datetime.strptime(str(date.today().year) + "-" + aim_date, "%Y-%m-%d")
-#  elif re.match(r'^\d{2,4}\-\d{1,2}\-\d{1,2}$', aim_date):
-#    next = datetime.strptime(aim_date, "%Y-%m-%d")
-#    next = next.replace(nowtime.year)
-#  else:
-#    print('日期格式不符合要求')
-    
-#  if next < nowtime:
-#    next = next.replace(year=next.year + 1)
-#  return (next - today).days
-
 # 彩虹屁 接口不稳定，所以失败的话会重新调用，直到成功
 def get_words():
   words = requests.get("https://api.shadiao.pro/chp")
@@ -166,11 +140,6 @@ data = {
     "value": math.floor(weather['low']),
     "color": get_random_color()
   },
-  # 正计时
-  # "having_day": {
-  #   "value": get_memorial_days_count(),
-  #   "color": get_random_color()
-  # },
   # 每日一言
   "words": {
     "value": get_words(),
@@ -181,25 +150,6 @@ data = {
   # "color": get_random_color()
 }
 
-# 倒计时添加到数据
-#for index, aim_date in enumerate(split_dates(end_date)):
-#  key_name = "endday_left"
-#  if index != 0:
-#    key_name = key_name + "_%d" % index
-#  data[key_name] = {
-#    "value": get_counter_left(aim_date),
-#    "color": get_random_color()
-#  }
-
-# 各种正计时
-#for index, aim_date in enumerate(split_dates(start_date)):
-#  key_name = "having_day"
-#  if index != 0:
-#    key_name = key_name + "_%d" % index
-#  data[key_name] = {
-#    "value": get_memorial_days_count(aim_date),
-#    "color": get_random_color()
-#  }
 
 if __name__ == '__main__':
   try:

@@ -54,6 +54,11 @@ def get_week_day():
   week_day = week_list[datetime.date(today).weekday()]
   return week_day
 
+#差距时间
+def get_count():
+  delta = today - datetime.strptime(start_date, "%Y-%m-%d")
+  return delta.days
+
 # 彩虹屁 接口不稳定，所以失败的话会重新调用，直到成功
 def get_words():
   words = requests.get("https://api.shadiao.pro/chp")
@@ -122,6 +127,10 @@ data = {
   "highest": {
     "value": math.floor(weather['high']),
     "color": get_random_color()
+  },
+  # 时间差
+  "love_days":{
+    "value":get_count()
   },
   # 最低温度
   "lowest": {
